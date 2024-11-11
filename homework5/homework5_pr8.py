@@ -1,21 +1,14 @@
-# Инициализация переменной для суммирования
-total_sum = 0
+def sum_numbers():
+    total = 0
+    while True:
+        user_input = input("Введите число (или 'stop'/'end' для завершения): ")
+        if user_input.lower() in ("stop", "end"):
+            break
+        try:
+            number = float(user_input)
+            total += number
+        except ValueError:
+            print("Ошибка: Пожалуйста, введите число или 'stop'/'end' для завершения.")
+    print(f"Сумма введённых чисел: {total}")
 
-# Бесконечный цикл
-while True:
-    user_input = input("Введите число (или 'stop'/'end' для завершения): ")
-
-    # Проверка, ввёл ли пользователь команду для завершения
-    if user_input.lower() == 'stop' or user_input.lower() == 'end':
-        break  # Выход из цикла
-
-    try:
-        # Попытка конвертировать ввод в число
-        number = float(user_input)  # Используем float для возможности работать с дробными числами
-        total_sum += number  # Добавление числа к общей сумме
-    except ValueError:
-        # Если ввод не является числом, сообщаем об ошибке
-        print("Пожалуйста, введите корректное число или 'stop'/'end' для завершения.")
-
-# Вывод суммы введённых чисел
-print(f"Сумма введённых чисел: {total_sum}")
+sum_numbers()
